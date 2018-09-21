@@ -1,3 +1,12 @@
+Bootstrap template:
+
+Verti by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
+
+Images:
+
 https://html5up.net/verti
 
 https://comedy1031.radio.com/blogs/big-mic/pastry-chef-boxed-cake-mixthe-reviews-are
@@ -7,6 +16,5 @@ https://demo.tagdiv.com/newspaper_craft_ideas/most-beautiful-homemade-cake-decor
 https://www.wisegeek.com/what-is-mini-displayport.htm
 
 https://nuvizz.com/uberrush-mean-enterprises-last-mile/
-
 
 https://www.istockphoto.com/photos/pavlova?sort=mostpopular&mediatype=photography&phrase=pavlova
