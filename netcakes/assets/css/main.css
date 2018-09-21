@@ -71,6 +71,24 @@ input, select, textarea {
 	-ms-appearance: none;
 	appearance: none;
 }
+/*login-page*/
+	#login-box{
+		width: 30%;
+		margin: auto;
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+
+	.form-group{
+		margin-top: 10px;
+		margin-bottom: 10px;
+		font-size: 20px;
+	}
+
+	#login-button{
+		margin: auto;
+		width: 100%;
+	}
 
 /* Basic */
 
