@@ -31,6 +31,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+	height: 100%
 }
 
 ol, ul {
@@ -72,11 +73,30 @@ input, select, textarea {
 	appearance: none;
 }
 /*login-page*/
+	#main-signUp{
+		background: #888888 url("../../images/sign-up-background.jpg") no-repeat top right;
+		background-blend-mode: lighten; 
+		background-size: cover;
+		padding-top: 2em;
+		padding-bottom: 4em;
+	}
+	#main-login{
+		background: #888888 url("../../images/login-background.jpg") no-repeat top right;
+		background-blend-mode: lighten; 
+		background-size: cover;
+		padding-top: 2em;
+		padding-bottom: 4em;
+	}
+
 	#login-box{
 		width: 30%;
+		padding: 20px;
 		margin: auto;
 		margin-top: 30px;
 		margin-bottom: 30px;
+		background: #f7f7f7;
+		border-radius: 10px;
+		min-width: 400px;
 	}
 
 	.form-group{
@@ -1923,7 +1943,7 @@ input, select, textarea {
 	}
 
 	#footer-wrapper {
-		padding: 6em 0 8em 0;
+		padding: 6em 0 4em 0;
 	}
 
 /* Header */
