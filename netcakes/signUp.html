@@ -37,15 +37,51 @@
 	<div id='login-box' class="container box">
 	<h1 style= "font-size: 50px; text-align: center" >Sign Up</h1>
 	<form id="login-form" action = "/login", method = "POST">
-		<div class = "form-group">
-			<label for="name">Name: </label>
-		<input class="form-control" type = "text" name = "name"></div>
-
 		<!-- username field-->
 		<div class="form-group">
-			<label for="username">Email: </label><input class="form-control" type = "text" name = "username">
+			<label for="username">Username: </label><input class="form-control" type = "text" name = "username">
 		</div>
-
+		
+		<!-- email field-->
+		<div class="form-group">
+			<label for="email">Email: </label><input class="form-control" type = "email" name = "email">
+		</div>
+		
+		<!-- name -->
+		<div class="form-group">
+			<label for="name">Name: </label><input class="form-control" type = "text" name = "name">
+		</div>
+		
+		<!-- address -->
+		<div class="form-group">
+			<label for="address">Address: </label><input class="form-control" type = "text" name = "address">
+		</div>
+		
+		<!-- City -->
+		<div class="form-group">
+			<label for="city">City: </label><input class="form-control" type = "text" name = "city">
+		</div>
+		
+		<!-- State -->
+		<div class="form-group">
+		<label for="state">State: </label><select class="form-control" name = "state">
+            <!-- will add more states -->
+            <option value="VA">VA</option>
+            <option value="MD">MD</option>
+            <option value="DC">DC</option>
+        </select>
+        </div>
+		
+		<!-- zip code -->
+		<div class="form-group">
+			<label for="zip_code">Zip Code: </label><input class="form-control" type = "text" name = "zip_code" maxlength="5" minlength="5">
+		</div>
+		
+		<!-- phone number -->
+		<div class="form-group">
+			<label for="phone">Phone number: </label><input class="form-control" type = "text" name = "phone">
+		</div>
+		
 		<!-- password field -->
 		<div class="form-group">
 			<label for="password">Password: </label><input class="form-control" type = "password" name = "password" >
@@ -54,6 +90,7 @@
 		<div class="form-group">
 			<label for="password">Repeat Password: </label><input class="form-control" type = "password" name = "password" >
 		</div>
+		
 		<!-- Login button -->
 		<button class="button btn btn-lg btn-block btn-secondary" id="login-button"> Sign Up </input>
 		</form>
