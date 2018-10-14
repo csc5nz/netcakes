@@ -20,19 +20,19 @@
 
 						<!-- Logo -->
                             <div id="logo">
-                               <h1 ><img src="images/icon07.png" alt=""><a href="index.html">Netcakes</a></h1>
+                               <h1 ><img src="images/icon07.png" alt=""><a href="index.php">Netcakes</a></h1>
                             </div>
 
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
                                     
-									<li class="current"><a href="index.html">Welcome</a></li>
-									<li><a href="about-us.html">About Us</a></li>
+									<li class="current"><a href="index.php">Welcome</a></li>
+									<li><a href="about-us.php">About Us</a></li>
 									</li>
-									<li><a href="contactUs.html">Contact Us</a></li>
-                                    <li><a href="signUp.html">Sign Up</a></li>
-									<li><a href="login.html">Log In</a></li>
+									<li><a href="contactUs.php">Contact Us</a></li>
+                                    <li><a href="signUp.php">Sign Up</a></li>
+									<li><a href="login.php">Log In</a></li>
 								</ul>
 							</nav>
 
@@ -50,7 +50,7 @@
 							<div class="col-5 col-12-medium">
 								<ul>
 									<li><a href="#" class="button large icon fa-arrow-circle-right">Order Now</a></li>
-									<li><a href="about-us.html" class="button alt large icon fa-question-circle">More info</a></li>
+									<li><a href="about-us.php" class="button alt large icon fa-question-circle">More info</a></li>
 								</ul>
 							</div>
 						</div>
@@ -121,12 +121,12 @@
 									<section class="widget links">
 										<h3>Directory</h3>
 										<ul class="style2">
-                                        <li><a href="index.html">Welcome</a></li>
-                                        <li><a href="about-us.html">About Us</a></li>
+                                        <li><a href="index.php">Welcome</a></li>
+                                        <li><a href="about-us.php">About Us</a></li>
                                         </li>
-                                        <li><a href="contactUs.html">Contact Us</a></li>
-                                        <li class="current"><a href="signUp.html">Sign Up</a></li>
-                                        <li><a href="login.html">Log In</a></li>
+                                        <li><a href="contactUs.php">Contact Us</a></li>
+                                        <li class="current"><a href="signUp.php">Sign Up</a></li>
+                                        <li><a href="login.php">Log In</a></li>
                                             </ul>
                                         </section>
 
