@@ -57,7 +57,7 @@
 													<div class="col-6"><a href="#" class="image fit"><img src="images/homepagecake04.jpg" alt="" /></a></div>
 												</div>
 											</div>
-											<a href="#" class="button icon fa-user">Log In</a>
+											<a href="login.php" class="button icon fa-user">Log In</a>
 										</section>
 									</div>
 
@@ -69,8 +69,11 @@
 										<section class="last">
 											<h2>What is Netcakes?</h2>
 											<p>Welcome to <strong>Netcakes</strong>, a new way to order cakes. No more need to go to the bakery and try to explain to the baker what kind of cake you want. Now, with Netcakes you can design your cake online and we will prepare it and deliver it directly to your door. </p>
-											<p>We have an intuitive and easy to use tool that lets you choose every aspect of your cake such as type of layers, fillings, icing, and greetings. Once you're happy with your design, you can order with your most convenient type of payment. Our master bakers will craft your cake base on your specifications. Finally, we will hand deliver your cake with care directly to your front door. <a href="#" Try Netcakes today</a> Try Netcakes today.</p>
-											<a href="#" class="button icon fa-arrow-circle-right">Order Now</a>
+											<p>We have an intuitive and easy to use tool that lets you choose every aspect of your cake such as type of layers, fillings, icing, and greetings. Once you're happy with your design, you can order with your most convenient type of payment. Our master bakers will craft your cake base on your specifications. Finally, we will hand deliver your cake with care directly to your front door. <a href="#" Try Netcakes today</a> Try Netcakes today.</a></p>
+											<p>Netcakes started in September 2018 when three entrepreneurs and engineers decided that there must be an easier way to order and deliver cakes. Thus, with the idea and invention of new technology, they founded Netcakes with the hopes giving its customers quality cakes that are delivered straight to the customer costing a fraction of the normal cost.</p>
+
+											
+											<a href="signUp.php" class="button icon fa-arrow-circle-right">Order Now</a>
 										</section>
 									</div>
 
