@@ -45,11 +45,11 @@
 						<div class="row">
 							<div class="col-7 col-12-medium">
 								<h2>Hi. This is Netcakes.</h2>
-								<p>Order customized cakes delivered directly to your door.</p>
+								<p style="font-size:140%;">Order customized cakes delivered directly to your door for less. We are able to save you time and money because we deliver from our bakery directly to your home; no need to have brick and mortar stores. In addition, we let you build your cake exactly how you want it with higher degree of customization thanks to our intuitive website and our high tech bakeries.</p>
 							</div>
 							<div class="col-5 col-12-medium">
 								<ul>
-									<li><a href="#" class="button large icon fa-arrow-circle-right">Order Now</a></li>
+									<li><a href="signUp.php" class="button large icon fa-arrow-circle-right">Order Now</a></li>
 									<li><a href="about-us.php" class="button alt large icon fa-question-circle">More info</a></li>
 								</ul>
 							</div>
