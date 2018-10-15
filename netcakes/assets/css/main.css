@@ -72,6 +72,25 @@ input, select, textarea {
 	-ms-appearance: none;
 	appearance: none;
 }
+
+
+
+
+
+/*-------------------------------------------------------------Custom CSS---------------------------------------------------------------*/
+
+#success{
+	position: relative;
+	padding: 0.25rem 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	border: 1px solid transparent;
+	border-radius: 0.25rem;
+	color: #155724;
+	background-color: #d4edda;
+	border-color: #c3e6cb;
+}
+
 /*login-page*/
 	#main-signUp{
 		background: #888888 url("../../images/sign-up-background.jpg") no-repeat top right;
@@ -110,7 +129,34 @@ input, select, textarea {
 		width: 100%;
 	}
 
+	#error{
+		text-size: 10px;
+	}
+
+
+
+
+/*-----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 /* Basic */
+
+
+
+
+
+
+
+
+
+
 
 	@-ms-viewport {
 		width: device-width;

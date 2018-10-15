@@ -1,3 +1,10 @@
+<?php
+
+session_start() 
+?>
+
+
+
 <!DOCTYPE HTML>
 <!--
 	Verti by HTML5 UP
@@ -38,7 +45,14 @@
 		<div id='login-box' class="mx-auto pt-5">
 			<h1 style= "font-size: 50px; text-align: center" >Login</h1>
 			<form id="login-form" action = "/login", method = "POST">
-
+				<?php 
+					if(isset($_SESSION['success'])) {
+						echo "<div id='success'>";
+						echo $_SESSION['success']; 
+						echo "</div>";
+						unset($_SESSION['success']);
+					} 
+				?>
 				<!-- username field-->
 				<div class="form-group">
 					<label for="username">Username: </label><input class="form-control" type = "text" name = "username">
