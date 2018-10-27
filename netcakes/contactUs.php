@@ -1,3 +1,73 @@
+<?php 
+
+session_start();
+
+
+$nameErr = $emailErr = $messageErr = "";
+$name = $email = $message = "";
+
+$db['db_host'] = "ec2-54-221-225-11.compute-1.amazonaws.com";
+$db['db_user'] = "giimdycxlnobae";
+$db['db_pass'] = "c99958b48fc4bca1342e3649dace0b3e2fc15df3e1499eefee8af3c50a4e3757";
+$db['db_name'] = "d5vbcg7i8nd077";
+$db['db_port'] = "5432";
+foreach($db as $key => $value){
+  define(strtoupper($key), $value);
+}
+$connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS." dbname=".DB_NAME." port=".DB_PORT);
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    if (empty($_POST["name"])) {
+        $nameErr = "Name is required";
+    } 
+    else {
+        $name = test_input($_POST["name"]);
+        if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+            $nameErr = "Only letters and white space allowed";
+        }
+    }
+
+    if (empty($_POST["email"])) {
+        $emailErr = "Email is required";
+    } 
+    else {
+        $email = test_input($_POST["email"]);
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format";
+        }
+    } 
+
+  
+
+  
+  
+
+  if($connection){
+      if($nameErr == "" && $emailErr == "" && $messageErr ==""){
+          $res = pg_insert($connection, 'contact_us', $_POST, PGSQL_DML_EXEC);
+          if(!$res){
+            die("Logging contact failed. Please try again");
+          }
+          else{
+          	$_SESSION['success'] = 'Log update successful!';
+            header('Location: contactUs.php');
+            exit();
+        	}
+        }
+    }
+    else{
+        die ("Database connection failed");
+    }
+};
+    function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+?>
+
 <!DOCTYPE HTML>
 <!--
     Verti by HTML5 UP
@@ -50,11 +120,13 @@
 
                                 <h2>Contact Us</h2>
 
-                                <form>
+                                <form method="post" action="contactUs.php">
+                                    <label>Name </label>
+                                    <input type="text" name="name" placeholder = "John Doe"></input><?php echo $nameErr;?>
                                     <label>E-Mail</label>
-                                    <input type="email" placeholder="username@example.com"></input>
+                                    <input type="email" name="email"placeholder="username@example.com"></input><?php echo $emailErr;?>
                                     <label>Messages</label>
-                                    <textarea>Please write your message here</textarea>
+                                    <textarea name="message" placeholder="Please write your message here"></textarea><?php echo $messageErr;?>
                                     <button style="margin-top: 20px">Send!</button>
                                 </form>
 
