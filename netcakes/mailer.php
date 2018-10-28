@@ -4,7 +4,11 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+
 function mailer($toAddr, $toName, $subject, $body) {
+    // Get secret password from file
+    $password = file_get_contents('secret.txt');
+    
     //Load Composer's autoloader
     require '../vendor/autoload.php';
 
@@ -16,7 +20,7 @@ function mailer($toAddr, $toName, $subject, $body) {
         $mail->Host = 'smtp.gmail.com';                      // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
         $mail->Username = 'netcakesinc@gmail.com';                 // SMTP username
-        $mail->Password = 'Cake$arefun';                           // SMTP password
+        $mail->Password = $password;                           // SMTP password
         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 587;                                    // TCP port to connect to
 
