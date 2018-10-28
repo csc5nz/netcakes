@@ -1,7 +1,8 @@
 <?php 
 
-session_start();
+include('mailer.php');
 
+session_start();
 
 $nameErr = $emailErr = $userNameErr = $addressErr = $zipcodeErr = $cityErr = $stateErr = $phoneErr = $passwordErr = $repeat_passwordErr= "";
 $name = $email = $username = $address = $zipcode = $city = $state = $phone = $password = "";
@@ -126,6 +127,13 @@ else {
           }
           else{
           	$_SESSION['success'] = 'Sign up successful!';
+          	
+          	// Send confirmation email
+          	// To load mailer() function add this line to the top of script -> include('mailer.php');
+          	$subject = 'Welcome to Netcakes';
+          	$body = 'Hello ' . $name . ',<p>Your <b>Netcakes</b> account was created succesfully!';
+          	mailer($email, $name, $subject, $body);
+          	
             header('Location: login.php');
             exit();
         	}
