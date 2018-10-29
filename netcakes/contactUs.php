@@ -1,5 +1,7 @@
 <?php 
 
+include('mailer.php');
+
 session_start();
 
 
@@ -36,7 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $emailErr = "Invalid email format";
         }
-    } 
+    }
+    $message = test_input($_POST["message"]);
 
   
 
@@ -51,6 +54,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           }
           else{
           	$_SESSION['success'] = 'Log update successful!';
+          	
+          	// Send confirmation email
+          	// To load mailer() function add this line to the top of script -> include('mailer.php');
+          	$toEmail = 'netcakesinc@gmail.com';
+          	$toName = 'Customer Service';
+          	$subject = 'Contact Us';
+          	$body = '<h1>Contact Us</h1><p>Name: ' . $name . '<p>Email: ' . $email . '<p>Message:<p>' . $message;
+          	mailer($toEmail, $toName, $subject, $body);
+          	
             header('Location: contactUs.php');
             exit();
         	}
