@@ -73,7 +73,7 @@
 											<p>Netcakes started in September 2018 when three entrepreneurs and engineers decided that there must be an easier way to order and deliver cakes. Thus, with the idea and invention of new technology, they founded Netcakes with the hopes giving its customers quality cakes that are delivered straight to the customer costing a fraction of the normal cost.</p>
 
 											
-											<a href="signUp.php" class="button icon fa-arrow-circle-right">Order Now</a>
+											<a href="product.php" class="button icon fa-arrow-circle-right">Order Now</a>
 										</section>
 									</div>
 

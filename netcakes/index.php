@@ -49,7 +49,7 @@
 							</div>
 							<div class="col-5 col-12-medium">
 								<ul>
-									<li><a href="signUp.php" class="button large icon fa-arrow-circle-right">Order Now</a></li>
+									<li><a href="product.php" class="button large icon fa-arrow-circle-right">Order Now</a></li>
 									<li><a href="about-us.php" class="button alt large icon fa-question-circle">More info</a></li>
 								</ul>
 							</div>
