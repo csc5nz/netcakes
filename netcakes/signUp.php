@@ -127,14 +127,14 @@ else {
           }
           else{
           	$_SESSION['success'] = 'Sign up successful!';
+          	header('Location: login.php');
           	
           	// Send confirmation email
           	// To load mailer() function add this line to the top of script -> include('mailer.php');
           	$subject = 'Welcome to Netcakes';
           	$body = 'Hello ' . $name . ',<p>Your <b>Netcakes</b> account was created succesfully!';
           	mailer($email, $name, $subject, $body);
-          	
-            header('Location: login.php');
+            
             exit();
         	}
         }
