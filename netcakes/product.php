@@ -52,10 +52,9 @@
 								<p>$10.00</p>
 							</header>
 							<form action="https://test.bitpay.com/checkout" method="post" >
-								<input type="hidden" name="action" value="checkout" />
-								<input type="hidden" name="posData" value="" />
-								<input type="hidden" name="data" value="eAufnVBNWAVfa7eNdHwaG5wqh5GYsiJwOkVLA148Ao2JIgaZSXmxKnb/QM8n+ucj1Hy8C7Baxxz39U1+MWzEF9hmh+YlvsmmY8LxEFlX+2ihmI3mR1gSJqDG70xVifn1nBVE6mBn35UXIecgD7BfPtSJPN1SQc6UWUTmRdpO4/plVTV20+y36TDawAwCz6yCw4iEOxAQiaN8Umm4plm2MighT06ebgsTilbXvUJx7oE=" />
-								<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width:210px;" alt="BitPay, the easy way to pay with bitcoins." >
+							  <input type="hidden" name="action" value="cartAdd" />
+							  <input type="hidden" name="data" value="VJxorWWo9vChUjez8TFUkW" />
+							  <input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px;" alt="BitPay, the easy way to pay with bitcoins." >
 							</form>
 						</div>
 					</section>
@@ -71,10 +70,9 @@
 							<p>$3.00</p>
 						</header>
 						<form action="https://test.bitpay.com/checkout" method="post" >
-							<input type="hidden" name="action" value="checkout" />
-							<input type="hidden" name="posData" value="" />
-							<input type="hidden" name="data" value="eAufnVBNWAVfa7eNdHwaG5wqh5GYsiJwOkVLA148Ao2JIgaZSXmxKnb/QM8n+ucjacTNyZp6qFn8p/IH+ujLmFzuy59nZKXt4naQaxGfomBVX3q/JbqjP4GS9BgCAFT48QsAGcvLsqOaYqXcImN/f98zfp+Y4DyBxCJMt6CtT50XuJjtdhCMcIYRYr/pIprmny5+XmQlI3bnLJKRH7JCtp5mT8YXteozwmfh2iNbjXk=" />
-							<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width:210px;" alt="BitPay, the easy way to pay with bitcoins." >
+						  <input type="hidden" name="action" value="cartAdd" />
+						  <input type="hidden" name="data" value="VJxorWWo9vChUjez8TFUkW" />
+						  <input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px;" alt="BitPay, the easy way to pay with bitcoins." >
 						</form>
 					</div>
 				</section>
