@@ -113,8 +113,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 									<li><a href="about-us.php">About Us</a></li>
 									</li>
 									<li class="current"><a href="contactUs.php">Contact Us</a></li>
-                                    <li><a href="signUp.php">Sign Up</a></li>
-									<li><a href="login.php">Log In</a></li>
+                                    <?php 
+                                        if(isset($_SESSION['username'])){
+                                            echo "<li><a>".$_SESSION['username']."</a></li>";
+                                            echo "<li><a href='logout.php'>Log Out</a></li>";
+                                        }
+                                        else{
+                                            echo "<li><a href='signUp.php'>Sign Up</a></li>";
+                                            echo "<li><a href='login.php'>Log In</a></li>";
+                                        }
+                                    ?>
 								</ul>
 							</nav>
 
