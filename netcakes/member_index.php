@@ -4,6 +4,11 @@ include('mailer.php');
 
 session_start();
 
+if(!isset($_SESSION['username'])){
+    $_SESSION['failure'] = "You're not logged in";
+    header('Location: login.php');
+    exit();
+}
 
 $nameErr = $emailErr = $messageErr = "";
 $name = $email = $message = "";
@@ -26,6 +31,7 @@ $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS."
     }
     else{
         header('Location: login.php');
+        $_SESSION['failure'] = "The username doesn't exist in the database";
         exit();
     }
     if($connection){
@@ -54,7 +60,7 @@ $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS."
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
-  }
+    }
 ?>
 
 <!DOCTYPE HTML>
@@ -84,23 +90,23 @@ $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS."
 
                 <!-- Nav -->
                 <nav id="nav">
-								<ul>
-									<li><a href="index.php">Welcome</a></li>
-									<li><a href="about-us.php">About Us</a></li>
-									</li>
-									<li><a href="contactUs.php">Contact Us</a></li>
-                                    <?php 
-                                        if(isset($_SESSION['username'])){
-                                            echo "<li class='current'><a href='member_index.php'>".$_SESSION['username']."</a></li>";
-                                            echo "<li><a href='logout.php'>Log Out</a></li>";
-                                        }
-                                        else{
-                                            echo "<li><a href='signUp.php'>Sign Up</a></li>";
-                                            echo "<li><a href='login.php'>Log In</a></li>";
-                                        }
-                                    ?>
-								</ul>
-							</nav>
+					<ul>
+						<li><a href="index.php">Welcome</a></li>
+						<li><a href="about-us.php">About Us</a></li>
+						</li>
+						<li><a href="contactUs.php">Contact Us</a></li>
+                        <?php 
+                            if(isset($_SESSION['username'])){
+                                echo "<li class='current'><a href='member_index.php'>".$_SESSION['username']."</a></li>";
+                                echo "<li><a href='logout.php'>Log Out</a></li>";
+                            }
+                            else{
+                                echo "<li><a href='signUp.php'>Sign Up</a></li>";
+                                echo "<li><a href='login.php'>Log In</a></li>";
+                            }
+                        ?>
+					</ul>
+				</nav>
 
             </header>
         </div>

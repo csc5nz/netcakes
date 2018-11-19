@@ -109,7 +109,7 @@ session_start()
                                         <li><a href="contactUs.php">Contact Us</a></li>
                                         <?php 
 											if(isset($_SESSION['username'])){
-												echo "<li><a>".$_SESSION['username']."</a></li>";
+												echo "<li><a href='member_index.php'>".$_SESSION['username']."</a></li>";
 												echo "<li><a href='logout.php'>Log Out</a></li>";
 											}
 											else{
