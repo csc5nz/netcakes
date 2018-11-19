@@ -20,7 +20,7 @@ foreach($db as $key => $value){
 }
 $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS." dbname=".DB_NAME." port=".DB_PORT);
 
-
+    // Get session user
     if(isset($_SESSION['username'])){
         $username = $_SESSION['username'];
     }
@@ -28,6 +28,7 @@ $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS."
         header('Location: login.php');
         exit();
     }
+    // Get user info from database
     if($connection){
 		$query_res = pg_query($connection, "select * from \"User_info\" where username='". $username . "';");
         if(!$query_res){
@@ -46,7 +47,25 @@ $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS."
 	else{
 		die ("Database connection failed");
 	}
-    
+    // Get orders from database
+	if($connection){
+		$query_res2 = pg_query($connection, "select * from orders where username='". $username . "';");
+        if(!$query_res2){
+            die ("Database Query failed");
+        }
+        if(pg_num_rows($query_res2) > 0){
+            $orders_rows = pg_fetch_all($query_res2);
+            //$email = pg_fetch_assoc($query_res)['email'];
+            //$name = pg_fetch_assoc($query_res)['name'];
+            //exit();
+        }
+        else{
+            $_SESSION['failure'] = "The username doesn't exist in the database";
+        }
+    }
+	else{
+		die ("Database connection failed");
+	}
     
 
     function test_input($data) {
@@ -112,20 +131,68 @@ $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS."
 							<div class="col-7 col-12-medium">
 								<h2>Member Page </h2>
 								<!--<form method="post" action="contactUs.php">-->
-								<p><?php echo $_SESSION['username'];?></p>
+								<p><b><?php echo $_SESSION['username'];?></b></p>
                                     <p style="font-size:140%;">
-                                    <label>Name: </label>
+                                    <b>Name: </b>
                                     <?php echo $row['name'];?><br>
-                                    <label>E-Mail: </label>
+                                    <b>E-Mail: </b>
                                     <?php echo $row['email'];?><br>
-                                    <label>Address: </label>
+                                    <b>Address: </b>
                                     <?php echo $row['address'];?><br>
-                                    <label>State: </label>
+                                    <b>State: </b>
                                     <?php echo $row['state'];?><br>
-                                    <label>Zip: code </label>
+                                    <b>Zip: code </b>
                                     <?php echo $row['zipcode'];?><br>
-                                    <label>Phone number: </label>
+                                    <b>Phone number: </b>
                                     <?php echo $row['phone'];?></p>
+                                    
+                                        
+                                    
+                                    <!--<button style="margin-top: 20px">Send!</button>-->
+                                <!--</form>-->
+							</div>
+							<div class="col-5 col-12-medium">
+								<ul>
+									<!--<li><a href="product.php" class="button large icon fa-cart-plus">Order Now</a></li>-->
+									<li><a href="edit_profile.php" class="button alt large icon fa-user">Edit Profile</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+                
+                <br>
+                
+				
+				<!-- Banner -->
+				<div id="banner-wrapper">
+					<div id="banner" class="box container">
+						<div class="row">
+							<div class="col-7 col-12-medium">
+								    <p><b>Order History</b></p>
+                                    <br>
+                                    
+                                    <table style="width:100%">
+                                        <tr>
+                                            <th>Order</th>
+                                            <th>Price</th> 
+                                            <th>Date</th>
+                                        </tr>
+                                        
+                                        
+                                        <?php
+                                        //echo $orders_rows['item'], $orders_rows['price'];
+                                        foreach($orders_rows as $orders_row) {
+                                            echo '<tr>
+                                            <td>'.$orders_row['item'].'</td>
+                                            <td>$'.$orders_row['price'].'</td>
+                                            <td>'.$orders_row['date'].'</td>
+                                            </tr>';
+                                            //echo $orders_row;
+                                        }
+                                        ?>
+                                    </table>
+                                        
                                     
                                     <!--<button style="margin-top: 20px">Send!</button>-->
                                 <!--</form>-->
@@ -133,13 +200,12 @@ $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS."
 							<div class="col-5 col-12-medium">
 								<ul>
 									<li><a href="product.php" class="button large icon fa-cart-plus">Order Now</a></li>
-									<li><a href="edit_profile.php" class="button alt large icon fa-user">Edit Profile</a></li>
+									<!--<li><a href="edit_profile.php" class="button alt large icon fa-user">Edit Profile</a></li>-->
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
-
     
 
         <!-- Footer -->
