@@ -250,7 +250,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
     </div>
     <div id="main-signUp">
         <div id='login-box' class="container box">
-            <h1 style= "font-size: 50px; text-align: center" >Edit Profile (<?php echo $_SESSION['username'];?>)</h1>
+            <h1 style= "font-size: 50px; text-align: center" >Edit Profile</h1>
+            
             <form method="post" action="edit_profile.php">
                 <!-- username field-->
                 <div class="form-group">
