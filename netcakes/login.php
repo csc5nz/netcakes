@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			if(pg_num_rows($query_res) > 0){
 				if(password_verify($_POST["password"], pg_fetch_assoc($query_res)['password'])){
 					$_SESSION['username'] = $_POST['username'];
-		          	header('Location: product.php'); //UPDATE THIS
+		          	header('Location: member_index.php'); //UPDATE THIS
 		          	exit();
 				}
 				else{
