@@ -7,6 +7,8 @@ session_start();
 
 $nameErr = $emailErr = $messageErr = "";
 $name = $email = $message = "";
+$username = "";
+
 
 $db['db_host'] = "ec2-54-221-225-11.compute-1.amazonaws.com";
 $db['db_user'] = "giimdycxlnobae";
@@ -18,61 +20,35 @@ foreach($db as $key => $value){
 }
 $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS." dbname=".DB_NAME." port=".DB_PORT);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    if (empty($_POST["name"])) {
-        $nameErr = "Name is required";
-    } 
-    else {
-        $name = test_input($_POST["name"]);
-        if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-            $nameErr = "Only letters and white space allowed";
-        }
-    }
-
-    if (empty($_POST["email"])) {
-        $emailErr = "Email is required";
-    } 
-    else {
-        $email = test_input($_POST["email"]);
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "Invalid email format";
-        }
-    }
-    $message = test_input($_POST["message"]);
-
-  
-
-  
-  
-
-  if($connection){
-      if($nameErr == "" && $emailErr == "" && $messageErr ==""){
-          $res = pg_insert($connection, 'contact_us', $_POST, PGSQL_DML_EXEC);
-          if(!$res){
-            die("Logging contact failed. Please try again");
-          }
-          else{
-            $_SESSION['success'] = 'Log update successful!';          	
-            header('Location: contactUs.php');
-            
-            // Send confirmation email
-          	// To load mailer() function add this line to the top of script -> include('mailer.php');
-          	$toEmail = 'netcakesinc@gmail.com';
-          	$toName = 'Customer Service';
-          	$subject = 'Contact Us';
-          	$body = '<h1>Contact Us</h1><p><h3>Name: </h3>' . $name . '<p><h3>Email: </h3>' . $email . '<p><h3>Message:</h3>' . $message;
-          	mailer($toEmail, $toName, $subject, $body);
-            
-            exit();
-          
-        	}
-        }
+    if(isset($_SESSION['username'])){
+        $username = $_SESSION['username'];
     }
     else{
-        die ("Database connection failed");
+        header('Location: login.php');
+        exit();
     }
-};
+    if($connection){
+		$query_res = pg_query($connection, "select * from \"User_info\" where username='". $username . "';");
+        if(!$query_res){
+            die ("Database Query failed");
+        }
+        if(pg_num_rows($query_res) > 0){
+            $row = pg_fetch_assoc($query_res);
+            //$email = pg_fetch_assoc($query_res)['email'];
+            //$name = pg_fetch_assoc($query_res)['name'];
+            //exit();
+        }
+        else{
+            $_SESSION['failure'] = "The username doesn't exist in the database";
+        }
+    }
+	else{
+		die ("Database connection failed");
+	}
+    
+    
+
     function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -112,10 +88,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 									<li><a href="index.php">Welcome</a></li>
 									<li><a href="about-us.php">About Us</a></li>
 									</li>
-									<li class="current"><a href="contactUs.php">Contact Us</a></li>
+									<li><a href="contactUs.php">Contact Us</a></li>
                                     <?php 
                                         if(isset($_SESSION['username'])){
-                                            echo "<li><a href='member_index.php'>".$_SESSION['username']."</a></li>";
+                                            echo "<li class='current'><a href='member_index.php'>".$_SESSION['username']."</a></li>";
                                             echo "<li><a href='logout.php'>Log Out</a></li>";
                                         }
                                         else{
@@ -128,53 +104,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             </header>
         </div>
+        
+        <!-- Banner -->
+				<div id="banner-wrapper">
+					<div id="banner" class="box container">
+						<div class="row">
+							<div class="col-7 col-12-medium">
+								<h2>Member Page </h2>
+								<!--<form method="post" action="contactUs.php">-->
+								<p><?php echo $_SESSION['username'];?></p>
+                                    <p style="font-size:140%;">
+                                    <label>Name: </label>
+                                    <?php echo $row['name'];?><br>
+                                    <label>E-Mail: </label>
+                                    <?php echo $row['email'];?><br>
+                                    <label>Address: </label>
+                                    <?php echo $row['address'];?><br>
+                                    <label>State: </label>
+                                    <?php echo $row['state'];?><br>
+                                    <label>Zip: code </label>
+                                    <?php echo $row['zipcode'];?><br>
+                                    <label>Phone number: </label>
+                                    <?php echo $row['phone'];?></p>
+                                    
+                                    <!--<button style="margin-top: 20px">Send!</button>-->
+                                <!--</form>-->
+							</div>
+							<div class="col-5 col-12-medium">
+								<ul>
+									<li><a href="product.php" class="button large icon fa-cart-plus">Order Now</a></li>
+									<li><a href="edit_profile.php" class="button alt large icon fa-user">Edit Profile</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 
-        <!-- Main -->
-        <div id="main-wrapper">
-            <div class="container">
-                <div class="row gtr-200">
-                    <div class="col-8 col-12-medium">
-                        <div id="content">
-
-                            <!-- Content -->
-                            <article>
-
-                                <h2>Contact Us</h2>
-
-                                <form method="post" action="contactUs.php">
-                                    <label>Name </label>
-                                    <input type="text" name="name" placeholder = "John Doe"></input><?php echo $nameErr;?>
-                                    <label>E-Mail</label>
-                                    <input type="email" name="email"placeholder="username@example.com"></input><?php echo $emailErr;?>
-                                    <label>Messages</label>
-                                    <textarea name="message" placeholder="Please write your message here"></textarea><?php echo $messageErr;?>
-                                    <button style="margin-top: 20px">Send!</button>
-                                </form>
-
-                            </article>
-
-                        </div>
-                    </div>
-                    <div class="col-4 col-12-medium">
-                        <div id="sidebar">
-
-                            <!-- Sidebar -->
-                            <section>
-                                <h3>Follow Us</h3>
-                                <li><img src="images/facebook.png"></a>  Facebook</li>
-                                <li><img src="images/instagram.png">  Instagram</li>
-                                <li><img src="images/snapchat.png">Snapchat</li>
-                                <li><img src="images/twitter.png">Twitter</li>
-                                <footer>
-                                    <a href="#" class="button icon fa-info-circle">Find out more</a>
-                                </footer>
-                            </section>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    
 
         <!-- Footer -->
         <div id="footer-wrapper">
