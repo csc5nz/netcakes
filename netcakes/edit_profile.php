@@ -170,7 +170,7 @@ if($connection){
     }
     else{
         session_start();
-        $_SESSION['success'] = 'Sign up successful!';
+        //$_SESSION['success'] = 'Sign up successful!';
         header('Location: member_index.php');
 
           	// Send confirmation email
