@@ -91,7 +91,7 @@ $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS."
 									<li><a href="contactUs.php">Contact Us</a></li>
                                     <?php 
                                         if(isset($_SESSION['username'])){
-                                            echo "<li class='current'><a>".$_SESSION['username']."</a></li>";
+                                            echo "<li class='current'><a href='member_index.php'>".$_SESSION['username']."</a></li>";
                                             echo "<li><a href='logout.php'>Log Out</a></li>";
                                         }
                                         else{
@@ -104,48 +104,43 @@ $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS."
 
             </header>
         </div>
-
-        <!-- Main -->
-        <div id="main-wrapper">
-            <div class="container">
-                <div class="row gtr-200">
-                    <div class="col-8 col-12-medium">
-                        <div id="content">
-
-                            <!-- Content -->
-                            <article>
-
-                                <h2>Member Page (<?php echo $_SESSION['username'];?>)  </h2>
-
-                                <form method="post" action="contactUs.php">
-                                    <label>Name </label>
-                                    <?php echo $row['name'];?>
-                                    <label>E-Mail</label>
-                                    <?php echo $row['email'];?>
-                                    <!--<button style="margin-top: 20px">Send!</button>-->
-                                </form>
-
-                            </article>
-
-                        </div>
-                    </div>
-                    <div class="col-4 col-12-medium">
-                        <div id="sidebar">
-
-                            <!-- Sidebar -->
-                            <section>
-                                <h3>Member Functions</h3>
-                                
-                                    <a href="edit_profile.php" class="button icon fa-user">Edit profile</a>
+        
+        <!-- Banner -->
+				<div id="banner-wrapper">
+					<div id="banner" class="box container">
+						<div class="row">
+							<div class="col-7 col-12-medium">
+								<h2>Member Page </h2>
+								<!--<form method="post" action="contactUs.php">-->
+								<p><?php echo $_SESSION['username'];?></p>
+                                    <p style="font-size:140%;">
+                                    <label>Name: </label>
+                                    <?php echo $row['name'];?><br>
+                                    <label>E-Mail: </label>
+                                    <?php echo $row['email'];?><br>
+                                    <label>Address: </label>
+                                    <?php echo $row['address'];?><br>
+                                    <label>State: </label>
+                                    <?php echo $row['state'];?><br>
+                                    <label>Zip: code </label>
+                                    <?php echo $row['zipcode'];?><br>
+                                    <label>Phone number: </label>
+                                    <?php echo $row['phone'];?></p>
                                     
-                                </footer>
-                            </section>
+                                    <!--<button style="margin-top: 20px">Send!</button>-->
+                                <!--</form>-->
+							</div>
+							<div class="col-5 col-12-medium">
+								<ul>
+									<li><a href="product.php" class="button large icon fa-cart-plus">Order Now</a></li>
+									<li><a href="edit_profile.php" class="button alt large icon fa-user">Edit Profile</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    
 
         <!-- Footer -->
         <div id="footer-wrapper">
