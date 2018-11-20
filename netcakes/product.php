@@ -1,12 +1,21 @@
 <?php
-session_start()
+session_start();
+
+$user = "";
+
 ?>
+
+
 <!DOCTYPE HTML>
 <!--
 	Verti by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+
+
+
+
 <html>
 <head>
 	<title>Netcakes</title>
@@ -53,6 +62,7 @@ session_start()
 	<div id="features-wrapper">
 		<div class="container">
 			<div class="row">
+				
 				<div class="col-4 col-12-medium">
 					<!-- Box -->
 					<section class="box feature">
@@ -62,15 +72,16 @@ session_start()
 								<h2>Layered Cake</h2>
 								<p>$10.00</p>
 							</header>
-							<form action="https://test.bitpay.com/checkout" method="post" >
-								<input type="hidden" name="action" value="cartAdd" />
+							<form method="post" action="save_order.php">
+								<input type="hidden" name="item" value="Layered Cake" />
+								<input type="hidden" name="price" value="10.00" />
 								<input type="hidden" name="data" value="EXKjPnaCXdY2dfeD7Fs7yd" />
 								<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px;" alt="BitPay, the easy way to pay with bitcoins." >
 							</form>
 						</section>
 					</div>
-
-					<div class="col-4 col-12-medium"
+					
+						<div class="col-4 col-12-medium"
 					<!-- Box -->
 					<section class="box feature">
 						<a href="#" class="image featured"><img src="images/Cupcakes.jpg " alt="" /></a>
@@ -79,14 +90,17 @@ session_start()
 								<h2>Dozen Cupcakes</h2>
 								<p>$3.00</p>
 							</header>
-							<form action="https://test.bitpay.com/checkout" method="post" >
-								<input type="hidden" name="action" value="cartAdd" />
+							<form method="post" action="save_order.php">
+								<input type="hidden" name="item" value="Dozen Cupcakes" />
+								<input type="hidden" name="price" value="3.00" />
 								<input type="hidden" name="data" value="41NGL7cWLGebMJpuJC418n" />
 								<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px;" alt="BitPay, the easy way to pay with bitcoins." >
 							</form>
 						</div>
 					</section>
 				</div>
+
+				
 			</div>
 		</div>
 	</div>
