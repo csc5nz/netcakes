@@ -4,17 +4,7 @@ session_start();
 $user = "";
 
 ?>
-
-
 <!DOCTYPE HTML>
-<!--
-	Verti by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-
-
-
 
 <html>
 <head>
@@ -23,6 +13,29 @@ $user = "";
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 </head>
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function(event) {
+		document.getElementById("promo1").addEventListener("click", function(){
+			var promo1val = document.getElementById("promo1val").value;
+			if(promo1val == "CAKES"){
+				document.getElementById("promo1val").disabled = true;
+				document.getElementById("cake_price").innerText = "$8.00";
+				document.getElementById("price_data_1").value = "Gst382qXB8k8GnceyK1SmD";
+			}
+	}) 
+		document.getElementById("promo2").addEventListener("click", function(){
+			var promo2val = document.getElementById("promo2val").value;
+			if(promo2val == "YUM"){
+				document.getElementById("promo2val").disabled = true;
+				document.getElementById("cupcake_price").innerText = "$2.50";
+				document.getElementById("price_data_2").value = "77i8EwQRDctWGtB7bpEnsx"
+			}
+	}) 
+
+}
+	
+	);
+</script>
 <body class="is-preload homepage">
 	<div id="page-wrapper">
 		<!-- Header -->
@@ -63,37 +76,43 @@ $user = "";
 		<div class="container">
 			<div class="row">
 				
-				<div class="col-4 col-12-medium">
+				<div class="col-6 col-12-medium">
 					<!-- Box -->
 					<section class="box feature">
 						<a href="#" class="image featured"><img src="images/cake.jpg" alt="" /></a>
 						<div class="inner">
 							<header>
 								<h2>Layered Cake</h2>
-								<p>$10.00</p>
+								<p id="cake_price">$10.00</p>
 							</header>
+							<input id="promo1val" type="text" >
+							<input type="submit" id="promo1" value="Apply Promo">
+							<br><br>
 							<form method="post" action="save_order.php">
 								<input type="hidden" name="item" value="Layered Cake" />
 								<input type="hidden" name="price" value="10.00" />
-								<input type="hidden" name="data" value="EXKjPnaCXdY2dfeD7Fs7yd" />
+								<input type="hidden" id = "price_data_1" name="data" value="EXKjPnaCXdY2dfeD7Fs7yd" />
 								<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px;" alt="BitPay, the easy way to pay with bitcoins." >
 							</form>
 						</section>
 					</div>
 					
-						<div class="col-4 col-12-medium">
+					<div class="col-6 col-12-medium">
 					<!-- Box -->
 					<section class="box feature">
 						<a href="#" class="image featured"><img src="images/Cupcakes.jpg " alt="" /></a>
 						<div class="inner">
 							<header>
 								<h2>Dozen Cupcakes</h2>
-								<p>$3.00</p>
+								<p id="cupcake_price">$3.00</p>
 							</header>
+							<input id="promo2val" type="text" >
+							<input type="submit" id="promo2" value="Apply Promo">
+							<br><br>
 							<form method="post" action="save_order.php">
 								<input type="hidden" name="item" value="Dozen Cupcakes" />
 								<input type="hidden" name="price" value="3.00" />
-								<input type="hidden" name="data" value="41NGL7cWLGebMJpuJC418n" />
+								<input type="hidden" id="price_data_2" name="data" value="41NGL7cWLGebMJpuJC418n" />
 								<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px;" alt="BitPay, the easy way to pay with bitcoins." >
 							</form>
 						</div>
