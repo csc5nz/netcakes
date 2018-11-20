@@ -81,7 +81,7 @@ $user = "";
 						</section>
 					</div>
 					
-						<div class="col-4 col-12-medium"
+						<div class="col-4 col-12-medium">
 					<!-- Box -->
 					<section class="box feature">
 						<a href="#" class="image featured"><img src="images/Cupcakes.jpg " alt="" /></a>
