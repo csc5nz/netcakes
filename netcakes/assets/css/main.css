@@ -1602,6 +1602,14 @@ input, select, textarea {
 		border-radius: 8px;
 		border: solid 1px #eee;
 	}
+	form #promo1val,
+	form #promo2val{
+		float: left;
+	}
+	form #promo1,
+	form #promo2{
+		float: right;
+	}
 
 		form input[type="text"]:focus,
 		form input[type="email"]:focus,
