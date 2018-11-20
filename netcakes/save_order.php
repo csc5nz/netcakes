@@ -78,7 +78,7 @@ if(isset($_SESSION['username'])){
 <form action="https://test.bitpay.com/checkout" method="post" name="bitpay_form">
     <input type="hidden" name="action" value="cartAdd" />
     <input type="hidden" name="data" value="<?php echo $data; ?>" />
-    <input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px;" alt="BitPay, the easy way to pay with bitcoins." >
+    <!--<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px;" alt="BitPay, the easy way to pay with bitcoins." >-->
 </form>
 							
 							<?
