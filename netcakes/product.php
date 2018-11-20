@@ -83,6 +83,12 @@ $user = "";
 								<h2>Layered Cake</h2>
 								<p id="cake_price">$10.00</p>
 							</header>
+							<h2>Select Flavor</h2>
+							<input style="appearance:radio; -webkit-appearance: radio"type="radio" name="flavor" value="Chocolate" checked>Chocolate
+							<input style="appearance:radio; -webkit-appearance: radio"type="radio" name="flavor" value="Vanilla">Vanilla <br><br>
+							<h2>Select Filling</h2>
+							<input style="appearance:radio; -webkit-appearance: radio; margin-bottom: 10px;" type="radio" name="filling" value="Chocolate" checked>Chocolate
+							<input style="appearance:radio; -webkit-appearance: radio;"type="radio" name="filling" value="Vanilla">Vanilla<br><br>
 							<input id="promo1val" type="text" >
 							<input type="submit" id="promo1" value="Apply Promo">
 							<br><br>
@@ -104,10 +110,16 @@ $user = "";
 								<h2>Dozen Cupcakes</h2>
 								<p id="cupcake_price">$3.00</p>
 							</header>
-							<input id="promo2val" type="text" >
-							<input type="submit" id="promo2" value="Apply Promo">
-							<br><br>
+							<h2>Select Flavor</h2>
 							<form method="post" action="save_order.php">
+								<input style="appearance:radio; -webkit-appearance: radio"type="radio" name="flavor" value="Chocolate" checked>Chocolate
+								<input style="appearance:radio; -webkit-appearance: radio"type="radio" name="flavor" value="Vanilla">Vanilla <br><br>
+								<h2>Select Filling</h2>
+								<input style="appearance:radio; -webkit-appearance: radio; margin-bottom: 10px;" type="radio" name="filling" value="Chocolate" checked>Chocolate
+								<input style="appearance:radio; -webkit-appearance: radio;"type="radio" name="filling" value="Vanilla">Vanilla<br><br>
+								<input id="promo2val" type="text" >
+								<input type="submit" id="promo2" value="Apply Promo">
+								<br><br>
 								<input type="hidden" name="item" value="Dozen Cupcakes" />
 								<input type="hidden" name="price" value="3.00" />
 								<input type="hidden" id="price_data_2" name="data" value="41NGL7cWLGebMJpuJC418n" />
