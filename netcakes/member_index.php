@@ -159,7 +159,7 @@ $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS."
 							</div>
 							<div class="col-5 col-12-medium">
 								<ul>
-									<!--<li><a href="product.php" class="button large icon fa-cart-plus">Order Now</a></li>-->
+									<li><a href="product.php" class="button large icon fa-cart-plus">Order Now</a></li>
 									<li><a href="edit_profile.php" class="button alt large icon fa-user">Edit Profile</a></li>
 								</ul>
 							</div>
@@ -176,7 +176,7 @@ $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS."
 						<div class="row">
 							<div class="col-12 col-12-medium">
 								    <p style="display: inline;"><b>Order History</b></p>
-                                    <a href="product.php" style="width: 40%; float: right"class="button large icon fa-cart-plus">Order Now</a>
+                                    <!--<a href="product.php" style="width: 40%; float: right"class="button large icon fa-cart-plus">Order Now</a>-->
                                     <br>
                                     
                                     <table style="width:100%">
