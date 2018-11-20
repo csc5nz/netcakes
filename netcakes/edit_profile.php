@@ -161,7 +161,8 @@ if($connection){
     if(!$username_query_res || !$email_query_res){
       die ("Database Query failed");
   }
-  //$query_res = pg_query($connection, "select * from \"User_info\" where username='".
+  
+  // Update user info
   if((pg_num_rows($username_query_res) == 0 || $username == $row['username']) && (pg_num_rows($email_query_res) == 0 || $email == $row['email'])){
       $res = pg_query($connection, "UPDATE \"User_info\" SET username = '".$username."', email = '".$email."', name = '".$name."', address = '".$address."',  city = '".$city."', state = '".$state."', zipcode = '".$zipcode."', phone = '".$phone."' where username='".$user."';");
       $_SESSION['username'] = $username;
