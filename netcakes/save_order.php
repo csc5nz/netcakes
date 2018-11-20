@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-$user = $item = $price = $data ="";
+$user = $item = $price = $data = $filling = $flavor = "";
 //$_SESSION['username'] = "csc5nz2";
 
 if (isset($_POST['item'])) {
@@ -20,7 +20,16 @@ if (isset($_POST['data'])) {
 } else {
     // Fallback behaviour goes here
 }
-
+if (isset($_POST['flavor'])) {
+    $flavor = $_POST['flavor'];
+} else {
+    // Fallback behaviour goes here
+}
+if (isset($_POST['filling'])) {
+    $filling = $_POST['filling'];
+} else {
+    // Fallback behaviour goes here
+}
 
 $db['db_host'] = "ec2-54-221-225-11.compute-1.amazonaws.com";
 $db['db_user'] = "giimdycxlnobae";
@@ -42,7 +51,7 @@ if(isset($_SESSION['username'])){
         $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS." dbname=".DB_NAME." port=".DB_PORT);
 
         // Save order into database
-            $res = pg_query($connection, "insert into orders (username, item, price) values ('".$user."','".$item."','".$price."');");
+            $res = pg_query($connection, "insert into orders (username, item, price, filling, flavor) values ('".$user."','".$item."','".$price."','".$filling."','".$flavor."');");
             
             if(!$res){
                 die("Adding Order failed. Please try again");

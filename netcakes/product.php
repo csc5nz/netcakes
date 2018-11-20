@@ -20,13 +20,16 @@ $user = "";
 			if(promo1val === "CAKES"){
 				document.getElementById("cake_price").innerText = "$8.00";
 				document.getElementById("price_data_1").value = "Gst382qXB8k8GnceyK1SmD";
+				document.getElementById("price_cake").value = "8.00";
 			}
 	}) 
 		document.getElementById("promo2").addEventListener("click", function(){
 			var promo2val = document.getElementById("promo2val").value;
 			if(promo2val === "YUM"){
 				document.getElementById("cupcake_price").innerText = "$2.50";
-				document.getElementById("price_data_2").value = "77i8EwQRDctWGtB7bpEnsx"
+				document.getElementById("price_data_2").value = "77i8EwQRDctWGtB7bpEnsx";
+				document.getElementById("price_cupcake").value = "2.50";
+		
 			}
 	}) 
 
@@ -83,20 +86,27 @@ $user = "";
 								<h2>Layered Cake</h2>
 								<p id="cake_price">$10.00</p>
 							</header>
-							<h2>Select Flavor</h2>
-							<input style="appearance:radio; -webkit-appearance: radio"type="radio" name="flavor" value="Chocolate" checked>Chocolate
-							<input style="appearance:radio; -webkit-appearance: radio"type="radio" name="flavor" value="Vanilla">Vanilla <br><br>
-							<h2>Select Filling</h2>
-							<input style="appearance:radio; -webkit-appearance: radio; margin-bottom: 10px;" type="radio" name="filling" value="Chocolate" checked>Chocolate
-							<input style="appearance:radio; -webkit-appearance: radio;"type="radio" name="filling" value="Vanilla">Vanilla<br><br>
-							<input id="promo1val" type="text" >
-							<input type="submit" id="promo1" value="Apply Promo">
-							<br><br>
+							
 							<form method="post" action="save_order.php">
-								<input type="hidden" name="item" value="Layered Cake" />
-								<input type="hidden" name="price" value="10.00" />
-								<input type="hidden" id = "price_data_1" name="data" value="EXKjPnaCXdY2dfeD7Fs7yd" />
-								<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px;" alt="BitPay, the easy way to pay with bitcoins." >
+								<h2>Select Flavor</h2>
+								<input style="appearance:radio; -webkit-appearance: radio"type="radio" name="flavor" value="Chocolate" checked>Chocolate
+								<input style="appearance:radio; -webkit-appearance: radio"type="radio" name="flavor" value="Vanilla">Vanilla <br><br>
+								<h2>Select Filling</h2>
+								<input style="appearance:radio; -webkit-appearance: radio; margin-bottom: 10px;" type="radio" name="filling" value="Chocolate" checked>Chocolate
+								<input style="appearance:radio; -webkit-appearance: radio;"type="radio" name="filling" value="Vanilla">Vanilla<br><br>
+								<?php
+								if(isset($_SESSION["username"])){
+									echo '
+									<input id="promo1val" type="text" >
+									<input type="submit" id="promo1" value="Apply Promo">
+									<br><br>
+									<input type="hidden" name="item" value="Layered Cake" />
+									<input type="hidden" name="price" id="price_cake" value="10.00" />
+									<input type="hidden" id = "price_data_1" name="data" value="EXKjPnaCXdY2dfeD7Fs7yd" />
+									<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px;" alt="BitPay, the easy way to pay with bitcoins." >';
+								}
+								?>
+								
 							</form>
 						</section>
 					</div>
@@ -117,13 +127,19 @@ $user = "";
 								<h2>Select Filling</h2>
 								<input style="appearance:radio; -webkit-appearance: radio; margin-bottom: 10px;" type="radio" name="filling" value="Chocolate" checked>Chocolate
 								<input style="appearance:radio; -webkit-appearance: radio;"type="radio" name="filling" value="Vanilla">Vanilla<br><br>
-								<input id="promo2val" type="text" >
-								<input type="submit" id="promo2" value="Apply Promo">
-								<br><br>
-								<input type="hidden" name="item" value="Dozen Cupcakes" />
-								<input type="hidden" name="price" value="3.00" />
-								<input type="hidden" id="price_data_2" name="data" value="41NGL7cWLGebMJpuJC418n" />
-								<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px;" alt="BitPay, the easy way to pay with bitcoins." >
+								
+								<?php
+								if(isset($_SESSION["username"])){
+									echo '
+									<input id="promo2val" type="text" >
+									<input type="submit" id="promo2" value="Apply Promo">
+									<br><br>
+									<input type="hidden" name="item" value="Dozen Cupcakes" />
+									<input type="hidden" id="price_cupcake" name="price" value="3.00" />
+									<input type="hidden" id="price_data_2" name="data" value="41NGL7cWLGebMJpuJC418n" />
+									<input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px;" alt="BitPay, the easy way to pay with bitcoins." >';
+								}
+								?>
 							</form>
 						</div>
 					</section>

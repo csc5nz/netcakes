@@ -174,8 +174,9 @@ $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS."
 				<div id="banner-wrapper">
 					<div id="banner" class="box container">
 						<div class="row">
-							<div class="col-7 col-12-medium">
-								    <p><b>Order History</b></p>
+							<div class="col-12 col-12-medium">
+								    <p style="display: inline;"><b>Order History</b></p>
+                                    <a href="product.php" style="width: 40%; float: right"class="button large icon fa-cart-plus">Order Now</a>
                                     <br>
                                     
                                     <table style="width:100%">
@@ -183,6 +184,8 @@ $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS."
                                             <th>Order</th>
                                             <th>Price</th> 
                                             <th>Date</th>
+                                            <th>Filling</th>
+                                            <th>Flavor</th>
                                         </tr>
                                         
                                         
@@ -194,6 +197,8 @@ $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS."
                                                 <td>'.$orders_row['item'].'</td>
                                                 <td>$'.$orders_row['price'].'</td>
                                                 <td>'.$orders_row['date'].'</td>
+                                                <td>'.$orders_row['filling'].'</td>
+                                                <td>'.$orders_row['flavor'].'</td>
                                                 </tr>';
                                                 //echo $orders_row;
                                             }
@@ -211,12 +216,6 @@ $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS."
                                     
                                     <!--<button style="margin-top: 20px">Send!</button>-->
                                 <!--</form>-->
-							</div>
-							<div class="col-5 col-12-medium">
-								<ul>
-									<li><a href="product.php" class="button large icon fa-cart-plus">Order Now</a></li>
-									<!--<li><a href="edit_profile.php" class="button alt large icon fa-user">Edit Profile</a></li>-->
-								</ul>
 							</div>
 						</div>
 					</div>
