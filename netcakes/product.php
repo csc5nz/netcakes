@@ -97,8 +97,8 @@ $user = "";
 								<?php
 								if(isset($_SESSION["username"])){
 									echo '
-									<input id="promo1val" type="text" >
-									<input type="submit" id="promo1" value="Apply Promo">
+									<input id="promo1val" style="width: 55%;" type="text" >
+									<input class= "button" style="width: 40%; padding: 1px 12px; text-align: center;"id="promo1" value="Apply Promo">
 									<br><br>
 									<input type="hidden" name="item" value="Layered Cake" />
 									<input type="hidden" name="price" id="price_cake" value="10.00" />
@@ -131,8 +131,8 @@ $user = "";
 								<?php
 								if(isset($_SESSION["username"])){
 									echo '
-									<input id="promo2val" type="text" >
-									<input type="submit" id="promo2" value="Apply Promo">
+									<input id="promo2val" style="width: 55%;" type="text" >
+									<input class="button" style="width: 40%; padding: 1px 12px; text-align: center;" id="promo2" value="Apply Promo">
 									<br><br>
 									<input type="hidden" name="item" value="Dozen Cupcakes" />
 									<input type="hidden" id="price_cupcake" name="price" value="3.00" />
