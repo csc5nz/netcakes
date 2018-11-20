@@ -17,16 +17,14 @@ $user = "";
 	document.addEventListener("DOMContentLoaded", function(event) {
 		document.getElementById("promo1").addEventListener("click", function(){
 			var promo1val = document.getElementById("promo1val").value;
-			if(promo1val == "CAKES"){
-				document.getElementById("promo1val").disabled = true;
+			if(promo1val === "CAKES"){
 				document.getElementById("cake_price").innerText = "$8.00";
 				document.getElementById("price_data_1").value = "Gst382qXB8k8GnceyK1SmD";
 			}
 	}) 
 		document.getElementById("promo2").addEventListener("click", function(){
 			var promo2val = document.getElementById("promo2val").value;
-			if(promo2val == "YUM"){
-				document.getElementById("promo2val").disabled = true;
+			if(promo2val === "YUM"){
 				document.getElementById("cupcake_price").innerText = "$2.50";
 				document.getElementById("price_data_2").value = "77i8EwQRDctWGtB7bpEnsx"
 			}
