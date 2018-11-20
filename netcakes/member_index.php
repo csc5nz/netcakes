@@ -188,13 +188,22 @@ $connection = pg_connect("host=".DB_HOST." user=".DB_USER." password=".DB_PASS."
                                         
                                         <?php
                                         //echo $orders_rows['item'], $orders_rows['price'];
-                                        foreach($orders_rows as $orders_row) {
+                                        if (!empty($orders_rows)) {
+                                            foreach($orders_rows as $orders_row) {
+                                                echo '<tr>
+                                                <td>'.$orders_row['item'].'</td>
+                                                <td>$'.$orders_row['price'].'</td>
+                                                <td>'.$orders_row['date'].'</td>
+                                                </tr>';
+                                                //echo $orders_row;
+                                            }
+                                        }
+                                        else {
                                             echo '<tr>
-                                            <td>'.$orders_row['item'].'</td>
-                                            <td>$'.$orders_row['price'].'</td>
-                                            <td>'.$orders_row['date'].'</td>
-                                            </tr>';
-                                            //echo $orders_row;
+                                                <td>No orders available</td>
+                                                <td> </td>
+                                                <td> </td>
+                                                </tr>';                                        
                                         }
                                         ?>
                                     </table>
