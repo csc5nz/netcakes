@@ -1605,6 +1605,7 @@ input, select, textarea {
 	form #promo1val,
 	form #promo2val{
 		float: left;
+		width: 60%;
 	}
 	form #promo1,
 	form #promo2{
